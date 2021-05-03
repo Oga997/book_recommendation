@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+<head>
+<title>Book Recommendation</title>
+<link rel = "icon" href ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRm2VveDlUqzUbrNooutHi8NTVDvR-gYw30UQ&usqp=CAU" type = "image/x-icon">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+  
+.handle{
+        height: 50vh;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        margin-right: 5vh;
+        margin-left: 5vh;
+        display: block;
+        background-color: white;
+        border-radius: 20px;
+        padding: 1em;
+        width: auto;
+        box-shadow: 0px -10px 20px -5px #E2E2E2;
+        text-align: center;
+    }
+
+    @media screen and (max-width:600px) {
+        .handle{
+            margin-top: 12vh;
+            margin-bottom: 12vh;
+        }
+}
+#book_name{
+        width: 80%;
+        padding: 1em;
+        border-radius: 5px;
+        text-align: center;
+        border: 1px solid grey;
+        background: #f1f1f1;
+    }
+</style>    
+<body>  
+<div class="main">
+
+
+<center><h1>Book Recommendation</h1>
+  <div class="search-box">
+      <form action="{{ url_for('search') }}" method="POST">
+            <input type="text" id="book_name" name="book_name" placeholder="Enter a book name" required />
+        
+        </form>
+  </div>
+    </center>
+    
+</div>
+
+<hr>
+<div class="handle">
+<div class="genre">
+<h2><b>Select your genre:</b></h2>
+</div> 
+<br>   
+<!-- <div class="card"> -->
+
+<!-- <img src="biog.png" alt="biog" style="width: 100px">     -->
+<!-- <h2>Biography </h2> -->
+<!-- <p class="title">It's a detailed description of a person's life.It involves more than just the basic facts that happened in author's life</p> -->
+<!-- <p><a href="biog.php"><button class="gbtn">GET BOOKS</button></a></p>     -->
+<!-- </div> -->
+
+<center>
+ 
+ <!-- <div class="movie">
+        <h2><u>Movie Recommendation System</u></h2>
+        <form action="{{ url_for('main') }}" method="POST">
+            
+        </form>
+        <p style="color: #919191; padding: 1em;">The model uses <b>Content Based Recommendations</b> to find similar movies. Intuitive idea behind is <i>"If a person likes a particular item, he/she will also like an item that is similar to it."</i> The dataset is taken from <a href="https://www.kaggle.com/" target="_blank">Kaggle.com</a>.</p>
+        <br>
+  </div>
+ -->
+<form action="/genre", method="post">
+<div class="card">
+<!-- <img src='../static/images/book.png' alt="biog" style="width: 100px">     -->
+<h2></h2>
+<p><a href="classics"><button class="gbtn" name="cls" id="classics" type="submit">CLASSICS</button></a></p>   
+
+</div>
+
+<div class="card">
+<!-- <img src="book.png" alt="biog" style="width: 100px">     -->
+<h2></h2>
+<p><a href=""><button class="gbtn" name="aut" id="load_nf">Autobiography</button></a></p>    
+</div>
+
+<div class="card">
+<!-- <img src="book.png" alt="biog" style="width: 100px">     -->
+<h2></h2>
+<p><a href=""><button class="gbtn" name="ms" id="load_ms">MYSTERY</button></a></p>    
+</div>
+
+<div class="card">
+<!-- <img src="book.png" alt="biog" style="width: 100px">     -->
+<h2></h2>
+<p><a href=""><button class="gbtn" name="fi" id="load_fi">FICTION</button></a></p>    
+</div>
+
+<div class="card">
+<!-- <img src="book.png" alt="biog" style="width: 100px">     -->
+<h2></h2>
+<p><a href=""><button class="gbtn" name="tc" id="load_fi">TECHNICAL</button></a></p>    
+</div>
+</form>   
+</center>
+
+</div>
+<div class="foo">
+<ul class="dot">
+<li><h2> <a href="abt_us.html">About</a></h2></li>
+<li><h2><a href="contact.html">Contact</a></h2></li>
+</ul>
+<center>
+<a style="color: white" href="#" class="fa fa-facebook"></a>
+<a style="color: white" href="#" class="fa fa-twitter"></a>
+<a style="color: white" href="#" class="fa fa-google"></a>
+<a style="color: white" href="#" class="fa fa-linkedin"></a>
+<a style="color: white" href="#" class="fa fa-youtube"></a>
+</center>
+</div>
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+ -->
+</body>
+    
+</html>
