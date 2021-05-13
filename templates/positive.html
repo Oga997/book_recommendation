@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Book Recommender</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<style>
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 100%;
+    background-color: #ffffff;
+  line-height: 1.5;
+  color: #000;
+}
+@media (min-width: 32rem) {
+  body {
+    font-size: 102.5%;
+  }
+}
+@media (min-width: 54rem) {
+  body {
+    font-size: 105%;
+  }
+}
+@media (min-width: 65rem) {
+  body {
+    font-size: 107.5%;
+  }
+}
+@media (min-width: 75em) {
+  body {
+    font-size: 110%;
+  }
+}
+@media (min-width: 91rem) {
+  body {
+    font-size: 115%;
+  }
+}
+@media (min-width: 115rem) {
+  body {
+    font-size: 120%;
+  }
+}
+@media (min-width: 130rem) {
+  body {
+    font-size: 125%;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+figure {
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.js-overflow {
+  overflow: hidden;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+.absolute-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+    
+    .book{
+        height: auto;
+        margin-top: 22vh;
+        margin-bottom: 15vh;
+        margin-right: 5vh;
+        margin-left: 5vh;
+        display: block;
+        background-color: white;
+        border-radius: 20px;
+        padding: 1em;
+        width: auto;
+        box-shadow: 0px -10px 20px -5px #E2E2E2;
+        text-align: center;
+    }
+
+    @media screen and (max-width:600px) {
+        .book{
+            height: auto;
+            margin-top: 12vh;
+            margin-bottom: 12vh;
+        }
+}
+    table,tr,td,th{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    td{
+      padding: 10px;  
+    }
+.card {
+  background-color:rgba(44, 62, 80, 1); 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  min-width: 300px;
+  text-align: center;
+  font-family: arial;
+  border-top: 6px solid lightseagreen;
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-bottom: 20px;
+  margin-right: 40px;
+  transition: 0.3s;
+  display: inline-block;
+  width: auto;
+  color: white;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 600px;
+  height: auto;
+  background-color: rgba(228, 233, 237, 1);
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position:absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+</style>
+</head>
+<body>
+
+    <div class="book">
+        <h2><u>Recommendations:</u></h2>
+        <p>Showing results for: {{ search_name }}</p>
+<div class="tooltip">
+  <div class="card">
+  <img src="{{ imge }}" style="width:100%">
+
+   <span class="tooltiptext">Written by <b>{{book_author[0]}} </b>{{book_desc[0]}} <b>download over here:</b><br>{{ book_file[0]|urlize(20, true) }} </span>
+  <div class="container">
+    <h4><b>{{book_names[0]}}</b></h4> 
+    <p><b>{{book_date[0]}}</b></p> 
+  </div>
+</div>
+</div>
+                       
+<div class="tooltip">
+  <div class="card">
+  <img src="{{ imge }}" style="width:100%">
+
+   <span class="tooltiptext">Written by <b>{{book_author[1]}} </b>{{book_desc[1]}} <b>download over here:</b><br>{{ book_file[1]|urlize(20, true) }} </span>
+  <div class="container">
+    <h4><b>{{book_names[1]}}</b></h4> 
+    <p><b>{{book_date[1]}}</b></p> 
+  </div>
+</div>
+</div>
+                       
+<div class="tooltip">
+  <div class="card">
+  <img src="{{ imge }}" style="width:100%">
+
+  <span class="tooltiptext">Written by <b>{{book_author[2]}} </b>{{book_desc[2]}} <b>download over here:</b><br>{{ book_file[2]|urlize(20, true) }} </span>
+  <div class="container">
+    <h4><b>{{book_names[2]}}</b></h4> 
+    <p><b>{{book_date[2]}}</b></p> 
+  </div>
+</div>
+</div>
+                       
+<div class="tooltip">
+  <div class="card">
+  <img src="{{ imge }}" style="width:100%">
+
+ <span class="tooltiptext">Written by <b>{{book_author[3]}} </b>{{book_desc[3]}} <b>download over here:</b><br>{{ book_file[3]|urlize(20, true) }} </span>
+   <div class="container">
+    <h4><b>{{book_names[3]}}</b></h4> 
+    <p><b>{{book_date[3]}}</b></p> 
+  </div>
+</div>                      
+</div>
+
+<div class="tooltip">
+  <div class="card">
+  <img src="{{ imge }}" style="width:100%">
+
+ <span class="tooltiptext">Written by <b>{{book_author[4]}} </b>{{book_desc[4]}} <b>download over here:</b><br>{{ book_file[4]|urlize(20, true) }} </span>
+   <div class="container">
+    <h4><b>{{book_names[4]}}</b></h4> 
+    <p><b>{{book_date[4]}}</b></p> 
+  </div>
+</div>                      
+</div>
+
+<div class="tooltip">
+  <div class="card">
+  <img src="{{ imge }}" style="width:100%">
+
+ <span class="tooltiptext">Written by <b>{{book_author[5]}} </b>{{book_desc[5]}} <b>download over here:</b><br>{{ book_file[5]|urlize(20, true) }} </span>
+   <div class="container">
+    <h4><b>{{book_names[5]}}</b></h4> 
+    <p><b>{{book_date[5]}}</b></p> 
+  </div>
+</div>                      
+</div>
+
+<div class="tooltip">
+  <div class="card">
+  <img src="{{ imge }}" style="width:100%">
+
+ <span class="tooltiptext">Written by <b>{{book_author[6]}} </b>{{book_desc[6]}} <b>download over here:</b><br>{{ book_file[6]|urlize(20, true) }} </span>
+   <div class="container">
+    <h4><b>{{book_names[6]}}</b></h4> 
+    <p><b>{{book_date[6]}}</b></p> 
+  </div>
+</div>                      
+</div>
+
+<div class="tooltip">
+  <div class="card">
+  <img src="{{ imge }}" style="width:100%">
+
+ <span class="tooltiptext">Written by <b>{{book_author[7]}} </b>{{book_desc[7]}} <b>download over here:</b><br>{{ book_file[7]|urlize(20, true) }} </span>
+   <div class="container">
+    <h4><b>{{book_names[7]}}</b></h4> 
+    <p><b>{{book_date[7]}}</b></p> 
+  </div>
+</div>                      
+</div>
+
+<div class="tooltip">
+  <div class="card">
+  <img src="{{ imge }}" style="width:100%">
+
+ <span class="tooltiptext">Written by <b>{{book_author[8]}} </b>{{book_desc[8]}} <b>download over here:</b><br>{{ book_file[8]|urlize(20, true) }} </span>
+   <div class="container">
+    <h4><b>{{book_names[8]}}</b></h4> 
+    <p><b>{{book_date[8]}}</b></p> 
+  </div>
+</div>                      
+</div>
+
+<div class="tooltip">
+  <div class="card">
+  <img src="{{ imge }}" style="width:100%">
+
+ <span class="tooltiptext">Written by <b>{{book_author[9]}} </b>{{book_desc[9]}} <b>download over here:</b><br>{{ book_file[9]|urlize(20, true) }} </span>
+   <div class="container">
+    <h4><b>{{book_names[9]}}</b></h4> 
+    <p><b>{{book_date[9]}}</b></p> 
+  </div>
+</div>                      
+</div>
+
+        <br>
+        <!-- <p style="color: #919191;">Feedback: <a href="https://forms.gle/7NGyYAvSe7Fepm68A">Google Form Link</a></p> -->
+  </div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js'></script>
+
+</body>
+</html>
