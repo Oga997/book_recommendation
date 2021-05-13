@@ -102,9 +102,6 @@
       </nav><!-- .nav-menu -->
 
       <div class="header-social-links">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
         <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
       </div>
 
@@ -341,7 +338,7 @@ By providing every student with a quality education, and the materials they need
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Link</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{url_for('main')}}">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{url_for('index')}}">About Us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{url_for('index')}}">Contact Us</a></li>
 
@@ -352,9 +349,9 @@ By providing every student with a quality education, and the materials they need
             <h4>Our Services</h4>
             <ul>
              
-              <li><i class="bx bx-chevron-right"></i> <a href="grade.php">Grade Tally</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="ptojectShpwcase.php">Project Hub</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Search with Recommendation</a></li> 
+              <li><i class="bx bx-chevron-right"></i> <a href="">Grade Tally</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Project Hub</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{url_for('main')}}">Search with Recommendation</a></li> 
             </ul>
           </div>
 
@@ -411,18 +408,3 @@ By providing every student with a quality education, and the materials they need
 </body>
 
 </html>
-<?php 
-include("connect.php");
-if(isset($_POST['reg'])){
-$u=$_POST["nm"];
-$ps=$_POST["em"];
-$su=$_POST["sb"];
-$e_m=$_POST["cm"];
-$database=new DatabaseManager();
-$query ="INSERT INTO feedbacks (name,email,sub,comment) VALUES ('$u','$ps','$su','$e_m')"; 
-//echo $query;
-$status=$database->fireSafeQuery($query,NUll);
-echo $query;
-echo $status;
-}
-?>
