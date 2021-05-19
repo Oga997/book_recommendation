@@ -207,7 +207,7 @@ app.config['up_img'] = bg_img
 @app.route('/genre',methods=['POST', 'GET'])
 def genre():
     
-    auto_filename = os.path.join(app.config['up_img'], 'autobiography.png')
+    auto_filename = os.path.join(app.config['up_img'], 'autobiography.PNG')
     class_filename = os.path.join(app.config['up_img'], 'classics.jpg')
     fict_filename = os.path.join(app.config['up_img'], 'fiction.jpg')
     myst_filename = os.path.join(app.config['up_img'], 'mystery.jpeg')
